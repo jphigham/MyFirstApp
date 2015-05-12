@@ -1,7 +1,6 @@
 package com.example.josephhigham.myfirstapp;
 
 import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,7 +9,7 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.EditText;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
     public final static String EXTRA_MESSAGE = "com.example.josephhigham.myfirstapp.MESSAGE";
 
     @Override
@@ -18,9 +17,9 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // If your minSdkVersion is 11 or higher, instead use:
-        // getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 
@@ -37,14 +36,20 @@ public class MainActivity extends ActionBarActivity {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
             case R.id.action_search:
-                //openSearch();
+                openSearch();
                 return true;
             case R.id.action_settings:
-                //openSettings();
+                openSettings();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void openSearch() {
+    }
+
+    public void openSettings() {
     }
 
     /** Called when the user clicks the Send button */
