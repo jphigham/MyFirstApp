@@ -1,7 +1,7 @@
 package com.example.josephhigham.myfirstapp;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -9,17 +9,13 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.EditText;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "com.example.josephhigham.myfirstapp.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        // If your minSdkVersion is 11 or higher, instead use:
-        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 
@@ -47,9 +43,11 @@ public class MainActivity extends Activity {
     }
 
     public void openSearch() {
+        System.out.println("Search");
     }
 
     public void openSettings() {
+        System.out.println("Settings");
     }
 
     /** Called when the user clicks the Send button */
