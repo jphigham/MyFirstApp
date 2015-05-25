@@ -1,8 +1,9 @@
 <resources>
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <!-- see http://stackoverflow.com/questions/12338244/making-resources-theme-dependent -->
+    <style name="AppTheme" parent="android:Theme.Holo">
+        <item name="ic_action_search">@drawable/ic_action_search_holo_dark</item>
     </style>
-
+    <style name="AppTheme.Light" parent="android:Theme.Holo.Light">
+        <item name="ic_action_search">@drawable/ic_action_search_holo_light</item>
+    </style>
 </resources>

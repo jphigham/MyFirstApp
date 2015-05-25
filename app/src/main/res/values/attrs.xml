@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- see http://stackoverflow.com/questions/12338244/making-resources-theme-dependent -->
+    <attr name="ic_action_search" format="reference"/>
+</resources>
