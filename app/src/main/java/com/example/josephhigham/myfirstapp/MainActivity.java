@@ -43,11 +43,11 @@ public class MainActivity extends Activity {
     }
 
     public void openSearch() {
-        System.out.println("Search");
+        System.out.println("Search stub");
     }
 
     public void openSettings() {
-        System.out.println("Settings");
+        System.out.println("Settings stub");
     }
 
     /** Called when the user clicks the Send button */
