@@ -1,6 +1,7 @@
 package com.example.josephhigham.myfirstapp;
 
 import android.app.Activity;
+import android.app.SearchManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -8,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
     public final static String EXTRA_MESSAGE = "com.example.josephhigham.myfirstapp.MESSAGE";
@@ -42,20 +44,33 @@ public class MainActivity extends Activity {
         }
     }
 
+    public String getMessageText() {
+        EditText editText = (EditText) findViewById(R.id.edit_message);
+        return editText.getText().toString();
+    }
+
     public void openSearch() {
-        System.out.println("Search stub");
+        Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+        intent.putExtra(SearchManager.QUERY, getMessageText());
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
     public void openSettings() {
-        System.out.println("Settings stub");
+        Intent intent = new Intent(this, SettingsActivity.class);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Toast toast = Toast.makeText(this, "Settings problem", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
     /** Called when the user clicks the Send button */
     public void sendMessage(View view) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
-        EditText editText = (EditText) findViewById(R.id.edit_message);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
+        intent.putExtra(EXTRA_MESSAGE, getMessageText());
         startActivity(intent);
     }
 }
